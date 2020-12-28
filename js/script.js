@@ -28,23 +28,26 @@ function onGalleryClick(event) {
     const largeImageURL = imageRef.dataset.source;
     console.log(largeImageURL);
 
-console.log(imageRef.src);
-    imageRef.src = largeImageURL;
-    console.log(imageRef.src);
+ setLargeImageSrc(largeImageURL);
+}
+
+const changeImageUrl = document.querySelector(".lightbox__image");
+
+function setLargeImageSrc(url) { 
+    changeImageUrl.src = url;
+    console.log(changeImageUrl.src);
 }
 
 
-
- const openModalImg = document.querySelector(".lightbox");
+const openModalImg = document.querySelector(".lightbox");
+const closeModalImg = document.querySelector('button[data-action="close-lightbox"]');
 
  galleryRef.addEventListener("click", () => {
-   openModalImg.classList.add("is-open");
+     openModalImg.classList.add("is-open");
+     
  });
 
-
-// galleryRef.addEventListener('click', openModal);
-
-// function openModal(event) { 
-//   event.target;  
-// } 
+closeModalImg.addEventListener("click", () => {
+  openModalImg.classList.remove("is-open");  
+});
 
