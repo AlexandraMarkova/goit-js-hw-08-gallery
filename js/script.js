@@ -1,8 +1,5 @@
 import items from "./gallery-items.js";
 
-console.log(items);
-
-
 const galleryRef = document.querySelector(".js-gallery");
 const openModalImg = document.querySelector(".lightbox");
 const changeImageUrl = document.querySelector(".lightbox__image");
@@ -19,7 +16,6 @@ galleryRef.insertAdjacentHTML("afterbegin", imagesRef.join(""));
 
  
 galleryRef.addEventListener('click', onGalleryClick);
-
 function onGalleryClick(event) { 
     event.preventDefault();
 
@@ -36,7 +32,6 @@ function onGalleryClick(event) {
 
 function setLargeImageSrc(url) { 
     changeImageUrl.src = url;
-    console.log(changeImageUrl.src);
 }
 
 closeModalImg.addEventListener("click", () => {
