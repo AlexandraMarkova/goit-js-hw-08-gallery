@@ -4,7 +4,11 @@ console.log(items);
 
 
 const galleryRef = document.querySelector(".js-gallery");
-console.log(galleryRef);
+const openModalImg = document.querySelector(".lightbox");
+const changeImageUrl = document.querySelector(".lightbox__image");
+const closeModalImg = document.querySelector('button[data-action="close-lightbox"]');
+
+
 
 const imagesRef = items.map(
   (elem) =>
@@ -20,34 +24,23 @@ function onGalleryClick(event) {
     event.preventDefault();
 
     const imageRef = event.target;
-    console.log(event.target);
     if (imageRef.nodeName !== 'IMG') { 
         return;
     }
 
     const largeImageURL = imageRef.dataset.source;
-    console.log(largeImageURL);
-
- setLargeImageSrc(largeImageURL);
+    setLargeImageSrc(largeImageURL);
+    
+    openModalImg.classList.add("is-open");  
 }
-
-const changeImageUrl = document.querySelector(".lightbox__image");
 
 function setLargeImageSrc(url) { 
     changeImageUrl.src = url;
     console.log(changeImageUrl.src);
 }
 
-
-const openModalImg = document.querySelector(".lightbox");
-const closeModalImg = document.querySelector('button[data-action="close-lightbox"]');
-
- galleryRef.addEventListener("click", () => {
-     openModalImg.classList.add("is-open");
-     
- });
-
 closeModalImg.addEventListener("click", () => {
-  openModalImg.classList.remove("is-open");  
+  openModalImg.classList.remove("is-open");
+    changeImageUrl.src = "";
 });
 
