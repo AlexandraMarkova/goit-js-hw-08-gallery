@@ -37,17 +37,26 @@ function onGalleryClick(event) {
 
     const largeImageURL = imageRef.dataset.source;
   changeImageUrl.src = largeImageURL;
-    
-    openModalImg.classList.add("is-open");  
+  
+  window.addEventListener('keydown', onPressEscape);
+  openModalImg.classList.add("is-open");
+  
 }
 
 closeModalImg.addEventListener("click", closeModal);
 overlayRef.addEventListener("click", closeModal);
 
 function closeModal() { 
+   window.removeEventListener("keydown", onPressEscape);
   openModalImg.classList.remove("is-open");
   changeImageUrl.src = "";
 }
 
+function onPressEscape(event) { 
+ if (event.code === 'Escape') { 
+   closeModal();
+   console.log('нужно закрыть')
+    }
+}
 
 
