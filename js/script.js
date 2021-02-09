@@ -40,6 +40,8 @@ function onGalleryClick(event) {
   
   window.addEventListener('keydown', onPressEscape);
   openModalImg.classList.add("is-open");
+
+  
   
 }
 
@@ -55,7 +57,6 @@ function closeModal() {
 function onPressEscape(event) { 
  if (event.code === 'Escape') { 
    closeModal();
-   console.log('нужно закрыть')
     }
 }
 
